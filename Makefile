@@ -7,7 +7,7 @@ export SHELL = /bin/bash
 # Settings
 MAKEFILES=Makefile $(wildcard *.mk)
 JEKYLL=bundle config --local set path .vendor/bundle && bundle install && bundle update && bundle exec jekyll
-HPC_JEKYLL_CONFIG?=
+HPC_JEKYLL_CONFIG?=LLNL_Pascal_slurm
 PARSER=bin/markdown_ast.rb
 DST=_site
 
