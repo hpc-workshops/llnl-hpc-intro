@@ -1,74 +1,39 @@
-# HPC-Intro Jekyll configuration
+# LLNL Pascal -- Slurm cluster
 ---
-
-#------------------------------------------------------------
-# SITE specific configuration
-#------------------------------------------------------------
-
-# Cluster host and scheduler options: the defaults come from
-# the HPC Carpentry tutorial cluster, running Slurm. Other
-# options can be found in the library of snippets,
-# `_includes/snippets_library`. To use one, replace options
-# below with those in `_config_options.yml` from the
-# library. E.g, to customise for Cirrus at EPCC, running
-# Slurm, we could replace the options below with those from
-# 
-# _includes/snippets_library/EPCC_Cirrus_slurm/_config_options.yml
-# 
-# If your cluster is not represented in the library, please
-# copy an existing folder, rename it, and customize for your
-# installation. Remember to keep the leading slash on the
-# `snippets` variable below!
-
-# ---------------------------------------------------------------
-# HPC Carpentries in the Cloud: Slurm + Software Stack from EESSI
-# ---------------------------------------------------------------
-#
-# The HPC Carpentry Cluster in the Cloud is provided as a public
-# service by volunteers. It is provisioned with Magic Castle
-# <https://github.com/ComputeCanada/magic_castle> using the EESSI
-# <https://eessi.github.io/docs/> software stack. If you need an
-# account, please visit <cluster.hpc-carpentry.org>.
-#
-# Compute responsibly.
-
-snippets: "/snippets_library/HPCC_MagicCastle_slurm"
+snippets: "/snippets_library/LLNL_Pascal_slurm"
 
 local:
-  prompt: "[you@laptop:~]$"
-  bash_shebang: "#!/usr/bin/env bash"
+  prompt: "[user@laptop ~]$"
+  bash_shebang: "#!/usr/bin/bash"
 
 remote:
-  name: "HPC Carpentry's Cloud Cluster"
-  login: "cluster.hpc-carpentry.org"
-  portal: "https://mokey.cluster.hpc-carpentry.org"
-  host: "login1"
-  node: "node1"
-  location: "cluster.hpc-carpentry.org"
-  homedir: "/home"
+  name: "Pascal"
+  login: "pascal.llnl.gov"
+  host: "pascal83"
+  node: "pascal17"
+  location: "Lawrence Livermore National Laboratory"
+  homedir: "/g/g0/"
   user: "yourUsername"
-  module_python3: "Python"
-  prompt: "[yourUsername@login1 ~]$"
+  prompt: "yourUsername@pascal83 $"
   bash_shebang: "#!/bin/bash"
 
 sched:
   name: "Slurm"
   submit:
     name: "sbatch"
-    options: ""
+    options: "--partition=pvis"
   queue:
-    debug: "smnode"
-    testing: "cpubase_bycore_b1"
+    debug: "pdebug"
+    testing: "pvis"
   status: "squeue"
   flag:
     user: "-u yourUsername"
     interactive: ""
-    histdetail: "-l -j"
+    histdetail: "--format=JobName,Submit,Start,State,ReqCPUS,Reserved,Elapsed,MaxRSS -j"
     name: "-J"
     time: "-t"
     queue: "-p"
-    nodes: "-N"
-    tasks: "-n"
+    partition: "-p pdebug"
   del: "scancel"
   interactive: "srun"
   info: "sinfo"
@@ -82,7 +47,6 @@ episode_order:
   - 12-cluster
   - 13-scheduler
   - 14-environment-variables
-  - 15-modules
   - 16-transferring-files
   - 17-parallel
   - 18-resources

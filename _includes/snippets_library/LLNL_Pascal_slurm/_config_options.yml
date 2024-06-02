@@ -1,21 +1,6 @@
 #------------------------------------------------------------
-# NIST CTCMS Slurm
+# LLNL Pascal/Quartz Slurm
 #------------------------------------------------------------
-
-# Cluster host and scheduler options: the defaults come from
-# Graham at Compute Canada, running Slurm. Other options can
-# be found in the library of snippets,
-# `_includes/snippets_library`. To use one, replace options
-# below with those in `_config_options.yml` from the
-# library. E.g, to customise for Cirrus at EPCC, running
-# Slurm, we could replace the options below with those from
-#
-# _includes/snippets_library/EPCC_Cirrus_slurm/_config_options.yml
-#
-# If your cluster is not represented in the library, please
-# copy an existing folder, rename it, and customize for your
-# installation. Remember to keep the leading slash on the
-# `snippets` variable below!
 ---
 snippets: "/snippets_library/LLNL_Pascal_slurm"
 
@@ -24,14 +9,14 @@ local:
   bash_shebang: "#!/usr/bin/bash"
 
 remote:
-  name: "pascal83"
-  login: "pascal.nist.gov"
-  host: "quartz"
+  name: "Pascal"
+  login: "pascal.llnl.gov"
+  host: "pascal83"
   node: "pascal17"
   location: "Lawrence Livermore National Laboratory"
   homedir: "/g/g0/"
   user: "yourUsername"
-  prompt: "yourUsername@pascal83"
+  prompt: "yourUsername@pascal83 $"
   bash_shebang: "#!/bin/bash"
 
 sched:
