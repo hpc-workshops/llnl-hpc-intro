@@ -1,27 +1,27 @@
-# LLNL Pascal -- Slurm cluster
+# LLNL Ruby -- Slurm cluster
 ---
-snippets: "/snippets_library/LLNL_Pascal_slurm"
+snippets: "/snippets_library/LLNL_Ruby_slurm"
 
 local:
   prompt: "[user@laptop ~]$"
   bash_shebang: "#!/usr/bin/bash"
 
 remote:
-  name: "Pascal"
-  login: "pascal.llnl.gov"
-  host: "pascal83"
-  node: "pascal17"
+  name: "Ruby"
+  login: "ruby.llnl.gov"
+  host: "ruby963"
+  node: "ruby68"
   location: "Lawrence Livermore National Laboratory"
   homedir: "/g/g0/"
-  user: "yourUsername"
-  prompt: "yourUsername@pascal83 $"
+  user: "class00"
+  prompt: "class00@ruby963 $"
   bash_shebang: "#!/bin/bash"
 
 sched:
   name: "Slurm"
   submit:
     name: "sbatch"
-    options: "--partition=pvis"
+    options: "--reservation=HPCC1A"
   queue:
     debug: "pdebug"
     testing: "pvis"
@@ -33,12 +33,12 @@ sched:
     name: "-J"
     time: "-t"
     queue: "-p"
-    partition: "-p pdebug"
+    partition: "--reservation=HPCC1A"
   del: "scancel"
   interactive: "srun"
   info: "sinfo"
   comment: "#SBATCH"
-  hist: "sacct -u yourUsername"
+  hist: "sacct -u class00"
   hist_filter: ""
 
 episode_order:
