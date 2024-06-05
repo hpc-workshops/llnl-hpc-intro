@@ -1,22 +1,22 @@
 #------------------------------------------------------------
-# LLNL Pascal/Quartz Slurm
+# LLNL Ruby Slurm
 #------------------------------------------------------------
 ---
-snippets: "/snippets_library/LLNL_Pascal_slurm"
+snippets: "/snippets_library/LLNL_Ruby_slurm"
 
 local:
   prompt: "[user@laptop ~]$"
   bash_shebang: "#!/usr/bin/bash"
 
 remote:
-  name: "Pascal"
-  login: "pascal.llnl.gov"
-  host: "pascal83"
-  node: "pascal17"
+  name: "Ruby"
+  login: "ruby.llnl.gov"
+  host: "ruby83"
+  node: "ruby17"
   location: "Lawrence Livermore National Laboratory"
   homedir: "/g/g0/"
-  user: "yourUsername"
-  prompt: "yourUsername@pascal83 $"
+  user: "class00"
+  prompt: "class00@ruby83 $"
   bash_shebang: "#!/bin/bash"
 
 sched:

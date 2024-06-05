@@ -21,7 +21,7 @@ sched:
   name: "Slurm"
   submit:
     name: "sbatch"
-    options: "--reservation=HPCC1A"
+    options: "--reservation=HPCC2A"
   queue:
     debug: "pdebug"
     testing: "pvis"
